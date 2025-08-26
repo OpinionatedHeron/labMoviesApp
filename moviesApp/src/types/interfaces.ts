@@ -15,6 +15,7 @@ export interface BaseMovieProps {
   revenue: number;
   vote_count: number;
   favourite?: boolean;
+  genre_ids?: number[];
 }
 export interface BaseMovieListProps {
   movies: BaseMovieProps[];
@@ -25,7 +26,7 @@ export interface MovieDetailsProps extends BaseMovieProps {
     id: number;
     name: string;
   }[];
-  
+
   production_countries: {
     iso_3166_1: string; //From TMBD Reference - https://developer.themoviedb.org/reference/movie-details
     name: string;
@@ -46,3 +47,5 @@ export interface MoviePageProps {
   movie: MovieDetailsProps;
   images: MovieImage[];
 }
+
+export type FilterOption = "title" | "genre";
