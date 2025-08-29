@@ -24,7 +24,9 @@ const styles = {
 
 const MovieHeader: React.FC<MovieDetailsProps> = (movie) => {
   const favourites = JSON.parse(localStorage.getItem("favourites") || "[]");
-  const isFavourite = (movie.favourite ?? false) || favourites.some((m: { id: number }) => m.id === movie.id);
+  const isFavourite =
+    (movie.favourite ?? false) ||
+    favourites.some((m: { id: number }) => m.id === movie.id);
   return (
     <Paper component="div" sx={styles.root}>
       <IconButton aria-label="go back">
@@ -32,10 +34,10 @@ const MovieHeader: React.FC<MovieDetailsProps> = (movie) => {
       </IconButton>
 
       {isFavourite ? (
-            <Avatar sx={styles.avatar}>
-              <FavoriteIcon />
-            </Avatar>
-          ) : null}
+        <Avatar sx={styles.avatar}>
+          <FavoriteIcon />
+        </Avatar>
+      ) : null}
 
       <Typography variant="h4" component="h3">
         {movie.title}
